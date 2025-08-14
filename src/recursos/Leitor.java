@@ -11,15 +11,15 @@ public class Leitor {
 /**
 **/
 	Document documento;
-	DocumentBuilder builder;
 	
-	public Leitor() throws ParserConfigurationException{DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-	factory.setValidating(true); factory.setIgnoringElementContentWhitespace(true);
-	factory.setIgnoringComments(true);
-	this.builder = factory.newDocumentBuilder();}
+	public Leitor(File f) {DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	try{DocumentBuilder builder = factory.newDocumentBuilder();
+	documento = builder.parse(f);
+	System.out.println("Foi possível criar o builder");} 
+	catch(ParserConfigurationException e) {System.out.println("Não foi possível criar o builder");}
+	catch(IOException e) {System.out.println("A caralha da porra do arquivo não entrou");}catch(SAXException e) 
+	{System.out.println("Tudo errado nessa porra, me mata");}
 	
-	public Document ler(File f) throws NullPointerException {try{documento = builder.parse(f); return documento;
-	}catch(IOException e){return null;}catch(SAXException e){return null;}catch(IllegalArgumentException e){return null;}
 	}
 
 	public NodeList lista(String f){NodeList nodes = documento.getElementsByTagName(f); return nodes;}

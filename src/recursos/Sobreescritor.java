@@ -10,7 +10,8 @@ Document dom;
 TransformerFactory transformerFactory = TransformerFactory.newInstance();
 Transformer transformer;
 DOMSource source = new DOMSource(dom);
-	public Sobreescritor(Document d) throws TransformerConfigurationException{dom = d; transformer = transformerFactory.newTransformer();};
+	public Sobreescritor(Document d) {try{dom = d; transformer = transformerFactory.newTransformer();}
+	catch(TransformerConfigurationException e) {}};
 	
 	public void mudarValor(NodeList n, int i, String s) {n.item(i).setTextContent(s);}
 	
