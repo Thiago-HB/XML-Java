@@ -17,8 +17,8 @@ public class Leitor {
 	documento = builder.parse(f);
 	System.out.println("Foi possível criar o builder");} 
 	catch(ParserConfigurationException e) {System.out.println("Não foi possível criar o builder");}
-	catch(IOException e) {System.out.println("A caralha da porra do arquivo não entrou");}catch(SAXException e) 
-	{System.out.println("Tudo errado nessa porra, me mata");}
+	catch(IOException e) {System.out.println("O arquivo não entrou");}catch(SAXException e) 
+	{System.out.println("Erro no SAX");}
 	
 	}
 
@@ -28,3 +28,4 @@ public class Leitor {
 	
 	public String lerValor(NodeList n, int i){return n.item(i).getTextContent();}
 }
+
