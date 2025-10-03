@@ -16,8 +16,8 @@ public class Leitor {
 	try{DocumentBuilder builder = factory.newDocumentBuilder();
 	documento = builder.parse(f);} 
 	catch(ParserConfigurationException e) {System.out.println("Não foi possível criar o builder");}
-	catch(IOException e) {System.out.println("A caralha da porra do arquivo não entrou");}catch(SAXException e) 
-	{System.out.println("Tudo errado nessa porra, me mata");}
+	catch(IOException e) {System.out.println("Arquivo não entrou");}catch(SAXException e) 
+	{System.out.println("Problema no SAX");}
 	
 	}
 
